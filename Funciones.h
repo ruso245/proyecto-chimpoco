@@ -6,4 +6,6 @@ void manual();
 void eleccionChimpoco();
 void modoAventura();
 void nombre();
+void combate ();
+
 #endif // FUNCIONES_H_INCLUDED

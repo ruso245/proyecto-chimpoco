@@ -1,10 +1,13 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include "Funciones.h"
 
 using namespace std;
 
 int main()
 {
+srand(time(0));
 
     int opcion;
     while(true)
@@ -20,21 +23,15 @@ int main()
             break;
         case 2:
             cout<<"modo versus:"<<endl;
-            cout<<"ingrese nombre de usuario: ";
-            char usuaryB;
-            cin>>usuaryB;
+           nombre();
             break;
         case 3:
             cout<<"God mode:"<<endl;
-            cout<<"ingrese nombre de usuario: ";
-            char usuaryC;
-            cin>>usuaryC;
+         nombre();
             break;
         case 4:
             cout<<"estadisticas:"<<endl;
-            cout<<"ingrese nombre de usuario: ";
-            char usuaryD;
-            cin>>usuaryD;
+           nombre();
         case 5:
             manual();
             break;
