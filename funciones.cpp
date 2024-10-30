@@ -65,6 +65,7 @@ void oponente(int enemigo [], int i)
 
 void nombre ()
 {
+    system("cls");
     cout<<"ingrese nombre de usuario: ";
     string(usuaryA);
     cin>>usuaryA;
@@ -115,27 +116,41 @@ void eleccionChimpoco(int chimpoco[])
 }
 void combate(int chimpoco[], int enemigo[])
 {
-    int ataqueNuestro = chimpoco[ataqueMinimo] + ((rand()% chimpoco[ataqueMaximo] - chimpoco[ataqueMinimo])+1);
-    int ataqueEnemigo = enemigo[ataqueMinimoE] + ((rand()% enemigo[ataqueMaximoE] - enemigo[ataqueMinimoE])+1);
-    cout<<"ataque chimpoco: "<< ataqueNuestro<<endl;
-     cout<<"ataque enemigo: "<< ataqueEnemigo<<endl;
     bool ataque = 0;
-
+    int chimpocoPVmax = chimpoco[PV];
+    int enemigoPVEmax = enemigo[PVE];
     while (chimpoco[PV]>0 && enemigo[PVE]>0){
+
 
         if(ataque == true){
             ataque = false;
-            cout<<chimpoco[PV]<<endl;
+            system("cls");
+            cout<<"TURNO ENEMIGO"<<endl;
+    int ataqueEnemigo = enemigo[ataqueMinimoE] + (rand()% (enemigo[ataqueMaximoE] - enemigo[ataqueMinimoE])+1);
+     cout<<"ataque enemigo: "<< ataqueEnemigo<<endl;
+
             chimpoco[PV] -= ataqueEnemigo;
-            cout<<"Nuestra vida: "<<chimpoco[PV]<<endl;
+            if (chimpoco[PV]<0){
+                chimpoco[PV] = 0;
+            }
+            cout<<"Nuestra vida:"<< chimpoco[PV] <<"/"<<chimpocoPVmax<<endl;
             system("pause>nul");
+
         }
         else{
             ataque = true;
-            cout<<enemigo[PVE]<<endl;
+            system("cls");
+            cout<<"TU TURNO"<<endl;
+    int ataqueNuestro = chimpoco[ataqueMinimo] + (rand()% (chimpoco[ataqueMaximo] - chimpoco[ataqueMinimo])+1);
+    cout<<"ataque chimpoco: "<< ataqueNuestro<<endl;
+
             enemigo[PVE] -= ataqueNuestro;
-            cout<<"Vida enemiga: "<<enemigo[PVE]<<endl;
+            if (enemigo[PVE]<0){
+                enemigo[PVE] = 0;
+            }
+            cout<<"Vida enemiga: "<<enemigo[PVE]<<"/"<< enemigoPVEmax<<endl;
             system("pause>nul");
+
         }
     }
     if(chimpoco[PV]<0){
@@ -145,6 +160,7 @@ void combate(int chimpoco[], int enemigo[])
     else {
     cout<<"GG ganaste flaco"<<endl;
     system("pause");
+    chimpoco[PV]= chimpocoPVmax;
     }
 }
 
@@ -156,16 +172,20 @@ void modoAventura()
     eleccionChimpoco(chimpoco);
     for(int i =1 ; i <=5 ; i++){
         oponente(enemigo, i);
+    combate(chimpoco, enemigo);
+    if (chimpoco[PV]<0){
+        break;
+    }
+
+
 
     }
-    combate(chimpoco, enemigo
 
 
 
 
 
 
-            );
 
 
 
