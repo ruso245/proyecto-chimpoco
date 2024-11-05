@@ -72,6 +72,33 @@ void nombre ()
 
 }
 
+void pociones()
+{
+    int elegirPocion;
+    cout<<"Elegi un items "<<endl;
+                cout<<"1 Boost de ataque"<<endl;
+                cout<<"2 Boost de defensa"<<endl;
+                cout<<"3 Pocion de vida"<<endl;
+
+                cin>>elegirPocion;
+
+            switch(elegirPocion){
+
+            case 1:
+                cout<<"Elegiste el boost de ataque";
+                break;
+            case 2:
+                cout<<"Elegiste el boost de defensa";
+                break;
+            case 3:
+                cout<<"Elegiste el pocion de vida";
+
+                cout<<"Te curas un 50% de tu vida";
+                break;
+            }
+}
+
+
 void eleccionChimpoco(int chimpoco[])
 {
     system("cls");
@@ -119,6 +146,9 @@ void combate(int chimpoco[], int enemigo[])
     bool ataque = 0;
     int chimpocoPVmax = chimpoco[PV];
     int enemigoPVEmax = enemigo[PVE];
+    int eleccion;
+
+
     while (chimpoco[PV]>0 && enemigo[PVE]>0){
 
 
@@ -140,13 +170,24 @@ void combate(int chimpoco[], int enemigo[])
         else{
             ataque = true;
             system("cls");
+
             cout<<"TU TURNO"<<endl;
+            cout<<"1Ataque"<<endl;
+            cout<<"2Items"<<endl;
+            cin>>eleccion;
+            if(eleccion == 1){
+
     int ataqueNuestro = chimpoco[ataqueMinimo] + (rand()% (chimpoco[ataqueMaximo] - chimpoco[ataqueMinimo])+1);
     cout<<"ataque chimpoco: "<< ataqueNuestro<<endl;
 
             enemigo[PVE] -= ataqueNuestro;
             if (enemigo[PVE]<0){
                 enemigo[PVE] = 0;
+            }
+            }else{
+
+
+
             }
             cout<<"Vida enemiga: "<<enemigo[PVE]<<"/"<< enemigoPVEmax<<endl;
             system("pause>nul");
