@@ -125,8 +125,8 @@ void combate(int chimpoco[], int enemigo[])
         int cargasAtaque = 3;
         int cargasDefensa = 3;
         int cargasVida =3;
-        int instanciaAtaque;
-        int instanciaDefensa;
+        int instanciaAtaque = 0;
+        int instanciaDefensa = 0;
     while (chimpoco[PV]>0 && enemigo[PVE]>0){
 
 
