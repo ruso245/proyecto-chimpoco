@@ -72,32 +72,6 @@ void nombre ()
 
 }
 
-void pociones()
-{
-    int elegirPocion;
-    cout<<"Elegi un items "<<endl;
-                cout<<"1 Boost de ataque"<<endl;
-                cout<<"2 Boost de defensa"<<endl;
-                cout<<"3 Pocion de vida"<<endl;
-
-                cin>>elegirPocion;
-
-            switch(elegirPocion){
-
-            case 1:
-                cout<<"Elegiste el boost de ataque";
-                break;
-            case 2:
-                cout<<"Elegiste el boost de defensa";
-                break;
-            case 3:
-                cout<<"Elegiste el pocion de vida";
-
-                cout<<"Te curas un 50% de tu vida";
-                break;
-            }
-}
-
 
 void eleccionChimpoco(int chimpoco[])
 {
@@ -144,24 +118,33 @@ void eleccionChimpoco(int chimpoco[])
 void combate(int chimpoco[], int enemigo[])
 {
     bool ataque = 0;
-    int chimpocoPVmax = chimpoco[PV];
+     int chimpocoPVmax = chimpoco[PV];
     int enemigoPVEmax = enemigo[PVE];
     int eleccion;
-
-
+     int elegirPocion;
+        int cargasAtaque = 3;
+        int cargasDefensa = 3;
+        int cargasVida =3;
+        int instanciaAtaque;
+        int instanciaDefensa;
     while (chimpoco[PV]>0 && enemigo[PVE]>0){
 
 
+    int ataqueEnemigo = enemigo[ataqueMinimoE] + (rand()% (enemigo[ataqueMaximoE] - enemigo[ataqueMinimoE])+1);
         if(ataque == true){
             ataque = false;
             system("cls");
             cout<<"TURNO ENEMIGO"<<endl;
-    int ataqueEnemigo = enemigo[ataqueMinimoE] + (rand()% (enemigo[ataqueMaximoE] - enemigo[ataqueMinimoE])+1);
-     cout<<"ataque enemigo: "<< ataqueEnemigo<<endl;
-
+        if(instanciaDefensa != 0){
+            ataqueEnemigo = ataqueEnemigo * 0.8;
+            instanciaDefensa--;
+            cout<<"te queda "<< instanciaDefensa<<"del boost de defensa"<<endl;
+        }
+                cout<<"ataque enemigo: "<< ataqueEnemigo<<endl;
             chimpoco[PV] -= ataqueEnemigo;
             if (chimpoco[PV]<0){
                 chimpoco[PV] = 0;
+
             }
             cout<<"Nuestra vida:"<< chimpoco[PV] <<"/"<<chimpocoPVmax<<endl;
             system("pause>nul");
@@ -175,9 +158,14 @@ void combate(int chimpoco[], int enemigo[])
             cout<<"1Ataque"<<endl;
             cout<<"2Items"<<endl;
             cin>>eleccion;
+    int ataqueNuestro = chimpoco[ataqueMinimo] + (rand()% (chimpoco[ataqueMaximo] - chimpoco[ataqueMinimo])+1);
+            if (instanciaAtaque != 0){
+                ataqueNuestro =  ataqueNuestro * 1.30;
+                instanciaAtaque--;
+                cout<<"te queda "<< instanciaAtaque<<" del boost de ataque"<<endl;
+            }
             if(eleccion == 1){
 
-    int ataqueNuestro = chimpoco[ataqueMinimo] + (rand()% (chimpoco[ataqueMaximo] - chimpoco[ataqueMinimo])+1);
     cout<<"ataque chimpoco: "<< ataqueNuestro<<endl;
 
             enemigo[PVE] -= ataqueNuestro;
@@ -185,6 +173,44 @@ void combate(int chimpoco[], int enemigo[])
                 enemigo[PVE] = 0;
             }
             }else{
+            cout<<"Elegi un items "<<endl;
+                cout<<"1 Boost de ataque "<< cargasAtaque<<endl;
+                cout<<"2 Boost de defensa "<< cargasDefensa<<endl;
+                cout<<"3 Pocion de vida "<< cargasVida<<endl;
+
+                cin>>elegirPocion;
+
+                    if(elegirPocion == 1 && cargasAtaque != 0){
+
+                        cout<<"elegiste el boost de ataque"<<endl;
+
+                        instanciaAtaque = 2;
+
+                        cargasAtaque--;
+
+                    } else if(elegirPocion == 2 && cargasDefensa !=0){
+
+                        cout<<"elegiste el boost de defensa"<<endl;
+                        instanciaDefensa = 3;
+                        cargasDefensa--;
+
+
+                    }else if(elegirPocion == 3 && cargasVida !=0){
+                        if(chimpoco[PV] >= chimpocoPVmax){
+                            cout<<"tenes la vida al maximo flaco que te vas a curar"<<endl;
+                        }else{
+                            cout<<"elegiste la pocion de vida"<<endl;
+                            chimpoco[PV] += chimpocoPVmax *0.50;
+                            cargasVida--;
+                            cout<<"te quedan"<<cargasVida<<"pociones"<<endl;
+                            if(chimpoco[PV] > chimpocoPVmax )
+                                chimpoco[PV] = chimpocoPVmax;
+                            if(cargasVida == 0 ){
+                            cout<<"Te quedaste sin pociones de vida";
+                            }
+                        }
+                    }
+
 
 
 
@@ -195,18 +221,20 @@ void combate(int chimpoco[], int enemigo[])
         }
     }
     if(chimpoco[PV]<0){
-    cout<<"Que pete perdiste XD"<<endl;
+    cout<<"JAJAJAJA que bot perdiste XD"<<endl;
     system("pause");
     }
     else {
     cout<<"GG ganaste flaco"<<endl;
     system("pause");
     chimpoco[PV]= chimpocoPVmax;
+
     }
 }
 
 void modoAventura()
 {
+
     int enemigo[3];
     int chimpoco[3];
     nombre();
@@ -221,13 +249,6 @@ void modoAventura()
 
 
     }
-
-
-
-
-
-
-
 
 
 
