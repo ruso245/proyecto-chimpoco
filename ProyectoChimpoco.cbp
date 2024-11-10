@@ -32,8 +32,22 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="Funciones.h" />
+		<Unit filename="chimpocoYOponente.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="chimpocos_y_oponentes.cpp" />
 		<Unit filename="funciones.cpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="modoAventura.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="modoAventura.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="modo_combate_aventura.cpp" />
+		<Unit filename="modocombate.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

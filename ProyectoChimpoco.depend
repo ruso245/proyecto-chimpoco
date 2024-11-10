@@ -1,0 +1,58 @@
+# depslib dependency file v1.0
+1731206672 source:c:\users\user\downloads\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	"Funciones.h"
+	"chimpocoYOponente.h"
+	"modocombate.h"
+	"modoAventura.h"
+
+1731205076 c:\users\user\downloads\funciones.h
+
+1731206701 source:c:\users\user\downloads\funciones.cpp
+	<iostream>
+	<cstdlib>
+	"Funciones.h"
+	"chimpocoYOponente.h"
+	"modocombate.h"
+	"modoAventura.h"
+
+1731110291 c:\users\user\downloads\chimpocos_y_oponentes.cpp
+	<iostream>
+	<cstdlib>
+	"funciones.cpp"
+
+1731110247 c:\users\user\downloads\funciones.cpp
+	<iostream>
+	<cstdlib>
+	"chimpocos_y_oponentes.cpp"
+	"modo_combate_aventura.cpp"
+
+1731110291 c:\users\user\downloads\modo_combate_aventura.cpp
+	<iostream>
+	<cstdlib>
+	"funciones.cpp"
+
+1731209474 source:c:\users\user\downloads\chimpocos_y_oponentes.cpp
+	<iostream>
+	<cstdlib>
+	"Funciones.h"
+	"chimpocoYOponente.h"
+	"modocombate.h"
+	"modoAventura.h"
+
+1731205718 c:\users\user\downloads\chimpocoyoponente.h
+
+1731204761 c:\users\user\downloads\modocombate.h
+
+1731206672 c:\users\user\downloads\modoaventura.h
+
+1731208831 source:c:\users\user\downloads\modo_combate_aventura.cpp
+	<iostream>
+	<cstdlib>
+	"Funciones.h"
+	"chimpocoYOponente.h"
+	"modocombate.h"
+	"modoAventura.h"
+

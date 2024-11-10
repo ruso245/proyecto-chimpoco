@@ -2,6 +2,9 @@
 #include <cstdlib>
 #include <ctime>
 #include "Funciones.h"
+#include "chimpocoYOponente.h"
+#include "modocombate.h"
+#include "modoAventura.h"
 
 using namespace std;
 
