@@ -2,16 +2,12 @@
 #include <cstdlib>
 #include <ctime>
 #include "Funciones.h"
-#include "chimpocoYOponente.h"
-#include "modocombate.h"
-#include "modoAventura.h"
 
 using namespace std;
 
 int main()
 {
 srand(time(0));
-
     int opcion;
     while(true)
     {
@@ -25,16 +21,15 @@ srand(time(0));
 
             break;
         case 2:
-            cout<<"modo versus:"<<endl;
-           nombre();
+            modoVersus();
+
             break;
         case 3:
-            cout<<"God mode:"<<endl;
-         nombre();
+           modoDios();
             break;
         case 4:
-            cout<<"estadisticas:"<<endl;
            nombre();
+           break;
         case 5:
             manual();
             break;
